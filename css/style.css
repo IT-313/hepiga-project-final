@@ -226,6 +226,50 @@ section.bg-surface { background: var(--bg-surface); }
 
 .is-invalid { border-color: #EF4444 !important; }
 
+/* Scroll up button */
+#myBtn {
+  display: none; 
+  position: fixed; 
+  bottom: 25px; 
+  right: 25px; 
+  width: 44px; 
+  height: 44px; 
+  border: 1px solid rgba(0, 153, 230, 0.2); 
+  outline: none; 
+  background-color: #0b132b; 
+  color: transparent; 
+  font-size: 0; 
+  cursor: pointer; 
+  border-radius: 6px; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
+  transition: all 0.25s ease-in-out; 
+  padding: 0;
+  overflow: hidden; 
+}
+
+#myBtn::after {
+  content: "↑"; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  color: #00a8e8; 
+  font-size: 20px; 
+  font-weight: bold;
+  line-height: 1;
+}
+
+#myBtn:hover {
+  background-color: #00a8e8; 
+  border-color: #00a8e8;
+  transform: translateY(-3px); 
+  box-shadow: 0 6px 16px rgba(0, 168, 232, 0.3); 
+}
+
+#myBtn:hover::after {
+  color: #ffffff;
+}
+
 /* Footer */
 footer { padding: 60px 0 30px; background: var(--bg-surface); border-top: 1px solid var(--border-color); }
 .footer-desc { margin-top: 12px; font-size: 0.9rem; }
