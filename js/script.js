@@ -20,6 +20,28 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 
+  /* Mobile nav: close the menu after a link is tapped so the section is visible */
+  var mainNav = document.getElementById('mainNav');
+  var navToggle = document.querySelector('.nav-toggle');
+
+  if (mainNav && navToggle && window.bootstrap) {
+    mainNav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        // Only act while the toggle is visible (mobile/tablet) and the menu is open
+        if (getComputedStyle(navToggle).display !== 'none' && mainNav.classList.contains('show')) {
+          bootstrap.Collapse.getOrCreateInstance(mainNav).hide();
+        }
+      });
+    });
+
+    // If the window is resized to desktop while the menu is open, reset it
+    window.addEventListener('resize', function () {
+      if (getComputedStyle(navToggle).display === 'none' && mainNav.classList.contains('show')) {
+        bootstrap.Collapse.getOrCreateInstance(mainNav).hide();
+      }
+    });
+  }
+
     /* Portfolio filter */
   var filterBtns = document.querySelectorAll('.filter-btn');
   // Select the outer column wrappers containing data-category attributes

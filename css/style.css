@@ -279,3 +279,63 @@ footer { padding: 60px 0 30px; background: var(--bg-surface); border-top: 1px so
 .footer-links a { color: var(--text-muted); transition: color .2s; }
 .footer-links a:hover { color: var(--accent); }
 .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: .75rem; color: var(--text-muted); padding-top: 24px; border-top: 1px solid var(--border-color); margin-top: 16px; }
+
+/* Mobile nav toggle: hidden on desktop, shown below Bootstrap's lg breakpoint (992px) */
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 42px; height: 42px;
+  padding: 0;
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: border-color .2s, color .2s, background .2s;
+}
+.nav-toggle:hover,
+.nav-toggle[aria-expanded="true"] { border-color: var(--accent); color: var(--accent); }
+.nav-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Offset anchor jumps so the sticky header doesn't cover section titles */
+html { scroll-padding-top: 76px; }
+
+
+@media (max-width: 991.98px) {
+
+  .nav-links { gap: 20px; }
+  
+  .nav-toggle { display: inline-flex; }
+
+  /* The wide desktop spacing would push the toggle off-screen */
+  .brand { padding-right: 0; }
+
+  .navbar > .container { flex-wrap: wrap; }
+
+  .navbar-collapse { flex-basis: 100%; }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 12px 0 8px;
+    margin-top: 12px;
+    border-top: 1px solid var(--border-color);
+  }
+  .nav-links a:not(.btn) {
+    padding: 12px 4px;
+    font-size: 1rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .nav-links .btn {
+    justify-content: center;
+    margin-top: 14px;
+  }
+
+  header.site-header {
+  background: rgba(145, 50, 50, 0.9);
+ 
+ }
+
+}
