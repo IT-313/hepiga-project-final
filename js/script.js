@@ -19,22 +19,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-
-  /* Mobile nav: close the menu after a link is tapped so the section is visible */
   var mainNav = document.getElementById('mainNav');
   var navToggle = document.querySelector('.nav-toggle');
 
   if (mainNav && navToggle && window.bootstrap) {
     mainNav.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
-        // Only act while the toggle is visible (mobile/tablet) and the menu is open
+  
         if (getComputedStyle(navToggle).display !== 'none' && mainNav.classList.contains('show')) {
           bootstrap.Collapse.getOrCreateInstance(mainNav).hide();
         }
       });
     });
 
-    // If the window is resized to desktop while the menu is open, reset it
     window.addEventListener('resize', function () {
       if (getComputedStyle(navToggle).display === 'none' && mainNav.classList.contains('show')) {
         bootstrap.Collapse.getOrCreateInstance(mainNav).hide();
@@ -97,11 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // "Start a project" button inside the modal: close the modal first,
-  // then scroll to #inquiry once it has actually finished closing.
-  // (Scrolling while the modal is still closing does nothing, because
-  // Bootstrap keeps the page locked with overflow:hidden until the
-  // close animation completes.)
+
   var serviceModalEl = document.getElementById('serviceModal');
   var serviceModalCta = document.getElementById('serviceModalCta');
 
@@ -146,7 +139,6 @@ document.addEventListener('DOMContentLoaded', function () {
 // Get the button:
 let mybutton = document.getElementById("myBtn");
 
-// When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
@@ -157,8 +149,7 @@ function scrollFunction() {
   }
 }
 
-// When the user clicks on the button, scroll to the top of the document
 function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0; 
 }
